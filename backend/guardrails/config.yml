@@ -1,0 +1,28 @@
+# NVIDIA NeMo Guardrails configuration for FinSight.
+#
+# The model block is a placeholder — backend/guardrails_engine.py loads this
+# file and overwrites `models[0].model` / `models[0].parameters.base_url` at
+# runtime from OLLAMA_MODEL / OLLAMA_HOST so it always points at the same
+# local Ollama instance the rest of the app uses.
+#
+# Rails are invoked directly via the action dispatcher (see
+# backend/guardrails_engine.py) rather than through the full Colang dialog
+# manager — `self_check_input` gates the raw user query before the agent
+# runs, and `self_check_facts` checks the agent's final answer against the
+# policy text it retrieved, to catch and block ungrounded (hallucinated)
+# answers.
+
+models:
+  - type: main
+    engine: ollama
+    model: llama3
+    parameters:
+      base_url: "http://localhost:11434/v1"
+
+rails:
+  input:
+    flows:
+      - self check input
+  output:
+    flows:
+      - self check facts

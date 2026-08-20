@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: finsight-api
+    command: >-
+      uvicorn backend.api:app
+      --host 0.0.0.0 --port 8000
+      --workers 2
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist ChromaDB vector store between container restarts
+      - ./chroma_db:/app/chroma_db
+      # Persist SQLite query log database
+      - ./finsight.db:/app/finsight.db
+      # Mount policy PDF so it can be ingested via /ingest/path
+      - ./data:/app/data
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+      - OLLAMA_MODEL=llama3
+      - CHROMA_DB_PATH=/app/chroma_db
+      - DATABASE_URL=sqlite:////app/finsight.db
+    extra_hosts:
+      # Allows the container to reach Ollama running on the Docker host
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  ui:
+    build: .
+    container_name: finsight-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s

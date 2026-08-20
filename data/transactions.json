@@ -1,0 +1,12 @@
+[
+  {"transaction_id": "TXN1001", "customer_id": "CUST-4471", "amount": 8250.00, "currency": "USD", "country": "US", "merchant_category": "wire_transfer", "timestamp": "2026-06-02T14:12:00Z", "fraud_flag": false, "fraud_score": 0.08, "status": "approved"},
+  {"transaction_id": "TXN1002", "customer_id": "CUST-2290", "amount": 125.50, "currency": "USD", "country": "US", "merchant_category": "retail", "timestamp": "2026-06-03T09:45:00Z", "fraud_flag": false, "fraud_score": 0.03, "status": "approved"},
+  {"transaction_id": "TXN1003", "customer_id": "CUST-7783", "amount": 15200.00, "currency": "EUR", "country": "DE", "merchant_category": "wire_transfer", "timestamp": "2026-06-04T22:03:00Z", "fraud_flag": true, "fraud_score": 0.83, "status": "flagged"},
+  {"transaction_id": "TXN1004", "customer_id": "CUST-1187", "amount": 42.10, "currency": "USD", "country": "US", "merchant_category": "groceries", "timestamp": "2026-06-05T11:20:00Z", "fraud_flag": false, "fraud_score": 0.02, "status": "approved"},
+  {"transaction_id": "TXN1005", "customer_id": "CUST-9902", "amount": 9800.00, "currency": "USD", "country": "US", "merchant_category": "wire_transfer", "timestamp": "2026-06-06T03:55:00Z", "fraud_flag": true, "fraud_score": 0.71, "status": "flagged"},
+  {"transaction_id": "TXN1006", "customer_id": "CUST-3345", "amount": 610.00, "currency": "GBP", "country": "GB", "merchant_category": "electronics", "timestamp": "2026-06-07T16:40:00Z", "fraud_flag": false, "fraud_score": 0.11, "status": "approved"},
+  {"transaction_id": "TXN1007", "customer_id": "CUST-5561", "amount": 21000.00, "currency": "USD", "country": "NG", "merchant_category": "wire_transfer", "timestamp": "2026-06-08T01:10:00Z", "fraud_flag": true, "fraud_score": 0.92, "status": "declined"},
+  {"transaction_id": "TXN1008", "customer_id": "CUST-6673", "amount": 89.99, "currency": "USD", "country": "US", "merchant_category": "subscription", "timestamp": "2026-06-09T08:30:00Z", "fraud_flag": false, "fraud_score": 0.04, "status": "approved"},
+  {"transaction_id": "TXN1009", "customer_id": "CUST-8814", "amount": 4300.00, "currency": "USD", "country": "US", "merchant_category": "cash_advance", "timestamp": "2026-06-10T19:05:00Z", "fraud_flag": false, "fraud_score": 0.28, "status": "approved"},
+  {"transaction_id": "TXN1010", "customer_id": "CUST-2290", "amount": 11500.00, "currency": "USD", "country": "US", "merchant_category": "wire_transfer", "timestamp": "2026-06-11T13:25:00Z", "fraud_flag": true, "fraud_score": 0.64, "status": "flagged"}
+]

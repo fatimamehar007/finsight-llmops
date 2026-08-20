@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.env.local
+
+# Database
+finsight.db
+*.db
+
+# ChromaDB
+chroma_db/
+
+# Data / Reports
+data/*.pdf
+reports/*.pdf
+*.pdf
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Logs
+*.log
+logs/
+
+# Model cache
+.cache/
